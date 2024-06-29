@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ButtonSimple from "../components/button"
 import InputSimple from "../components/input"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validateEmail } from "../lib/validacion.js";
 import { usuarios } from "../data/usuarios.js"
 
@@ -11,7 +11,7 @@ export default function IniciarSesion() {
 
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-
+    const history = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         let error;
@@ -32,7 +32,7 @@ export default function IniciarSesion() {
         if (usuarioEncontrado) {
             if (usuarioEncontrado.contraseña === password) {
                 console.log("Inicio de sesión exitoso");
-                window.location.href = "/principal";
+                history('/principal');
             } else {
                 setPasswordError("Contraseña incorrecta");
             }
