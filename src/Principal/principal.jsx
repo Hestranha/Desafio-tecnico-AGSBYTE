@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ButtonSimple from "../components/button"
+import { ButtonSimple } from "../components/button"
 
 export default function Principal() {
     return (

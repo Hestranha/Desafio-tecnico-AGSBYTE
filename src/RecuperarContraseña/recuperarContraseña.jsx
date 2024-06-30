@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ButtonSimple from "../components/button"
+import { ButtonSimple } from "../components/button"
 import InputSimple from "../components/input"
 import { validateEmail } from "../lib/validacion.js";
 import { usuarios } from "../data/usuarios.js"
@@ -35,7 +35,11 @@ export default function RecuperarContraseña() {
     return (
         <React.Fragment>
             {!isFindEmail ? (
-                <form className="flex flex-col rounded-md bg-white text-black gap-2 px-5 py-8 m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                <form
+                    className="flex flex-col rounded-md bg-white text-black gap-2 px-5 py-8 m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+                    onSubmit={handleSubmit}
+                    noValidate
+                >
                     <div>
                         <h2 className="font-bold text-center text-2xl mb-3">Recuperar Contraseña</h2>
                         <p className="text-sm">Introduzca su correo para recibir su nueva contraseña.</p>
@@ -51,7 +55,6 @@ export default function RecuperarContraseña() {
                     <ButtonSimple
                         typeButton="submit"
                         textButton="Recuperar"
-                        actionButton={handleSubmit}
                     />
                     <div className="flex justify-center text-gray-800 text-sm gap-1 w-full">
                         <p>¿Recuperaste tu cuenta?</p>
