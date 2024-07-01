@@ -44,10 +44,8 @@ export default function IniciarSesion() {
     }
 
     return (
-        <section
-            className="flex flex-col rounded-md w-full max-lg:m-4 md:flex-row md:w-3/4 lg:w-1/2"
-        >
-            <article className="flex flex-col justify-center items-center bg-white text-black px-5 py-8 gap-2 md:w-1/2">
+        <section className="flex flex-col rounded-md max-lg:m-4 md:flex-row md:w-3/4 lg:w-1/2">
+            <article className="flex flex-col justify-center items-center bg-white dark:text-white dark:bg-[#06064a] px-5 py-8 gap-2 md:w-1/2">
                 <h1 className="font-bold text-center uppercase text-2xl mb-3">
                     Bienvenido nuevamente a Ghaxy
                 </h1>
@@ -69,7 +67,7 @@ export default function IniciarSesion() {
                     />
                 </Link>
             </article>
-            <article className="flex flex-col justify-center bg-[#1413b5] text-black px-5 py-8 gap-2 md:w-1/2">
+            <article className="flex flex-col justify-center bg-[#0b0b25] px-5 py-8 gap-2 md:w-1/2">
                 <h2 className="font-bold text-center uppercase text-white text-2xl mb-3">
                     Iniciar Sesión
                 </h2>

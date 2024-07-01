@@ -81,8 +81,8 @@ export default function IniciarSesion() {
     }
 
     return (
-        <section className="flex flex-col rounded-md w-full max-lg:m-4 md:flex-row md:w-3/4 lg:w-1/2">
-            <article className="flex flex-col justify-center bg-[#1413b5] text-black px-5 py-8 gap-2 md:w-1/2">
+        <section className="flex flex-col rounded-md max-lg:m-4 md:flex-row md:w-3/4 lg:w-1/2">
+            <article className="flex flex-col justify-center bg-[#0b0b25] px-5 py-8 gap-2 md:w-1/2">
                 {!isValidateEmail ? (
                     <React.Fragment>
                         <form
@@ -178,7 +178,7 @@ export default function IniciarSesion() {
                 )}
 
             </article>
-            <article className="flex flex-col bg-white justify-center items-center text-black px-5 py-8 gap-2 max-md:order-first md:w-1/2">
+            <article className="flex flex-col justify-center items-center bg-white dark:text-white dark:bg-[#06064a] px-5 py-8 gap-2 max-md:order-first md:w-1/2">
                 <h1 className="font-bold text-center uppercase text-2xl mb-3">
                     Comienza y disfruta de Ghaxy
                 </h1>
