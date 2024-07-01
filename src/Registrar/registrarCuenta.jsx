@@ -6,25 +6,25 @@ import { validateEmail, validatePassword } from "../lib/validacion.js";
 import { usuarios } from "../data/usuarios.js"
 
 export default function IniciarSesion() {
-    const history = useNavigate();
+    const history = useNavigate(); // Ayudará a redirigir a otra página de la aplicación
 
-    const [newUser, setNewUser] = useState({});
+    const [newUser, setNewUser] = useState({}); // Para almacenar los datos del nuevo usuario registrado
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const [email, setEmail] = useState(""); // Obtener el email ingresado por el usuario
+    const [password, setPassword] = useState(""); // Obtener la contraseña ingresada por el usuario
+    const [passwordConfirmation, setPasswordConfirmation] = useState(""); // Obtener la contraseña ingresada por el usuario para la confirmación
 
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-    const [passwordErrorConfirmation, setPasswordErrorConfirmation] = useState("");
-    const [isValidateEmail, setIsValidateEmail] = useState(false);
+    const [emailError, setEmailError] = useState(""); // Obtener y mostrar el error del email cometido por el usuario
+    const [passwordError, setPasswordError] = useState(""); // Obtener y mostrar el error de la contraseña cometido por el usuario
+    const [passwordErrorConfirmation, setPasswordErrorConfirmation] = useState(""); // Obtener y mostrar el error de la confirmación de contraseñas
+    const [isValidateEmail, setIsValidateEmail] = useState(false); // Indica si el correo ha sido confirmado
 
-    const [code, setCode] = useState(0);
-    const [codeError, setCodeError] = useState("");
-    const [codeConfirmation, setCodeConfirmation] = useState(0);
+    const [code, setCode] = useState(0); // Obtener y motrar el código de confirmación
+    const [codeError, setCodeError] = useState(""); // Obtener y mostrar el error del código cometido por el usuario
+    const [codeConfirmation, setCodeConfirmation] = useState(0); // Obtener y mostrar el nuevo código de confirmación
 
-    const [timeSleep, setTimeSleep] = useState(0);
-    const [timeTotal, setTimeTotal] = useState(5);
+    const [timeSleep, setTimeSleep] = useState(0); // Mostrar una cuenta regresiva para el nuevo código de confirmación
+    const [timeTotal, setTimeTotal] = useState(5); // Aumentar el tiempo para generar el nuevo código de confirmación
 
     const onChangeEmail = (nuevoCorreo) => {
         if (nuevoCorreo.length >= 1) {

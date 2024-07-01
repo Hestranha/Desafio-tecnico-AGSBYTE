@@ -6,9 +6,9 @@ import { validateEmail } from "../lib/validacion.js";
 import { usuarios } from "../data/usuarios.js"
 
 export default function RecuperarContraseña() {
-    const [email, setEmail] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [isFindEmail, setIsFindEmail] = useState(false);
+    const [email, setEmail] = useState(""); // Obtener el email ingresado por el usuario
+    const [emailError, setEmailError] = useState(""); // Obtener y mostrar el error del email cometido por el usuario
+    const [isFindEmail, setIsFindEmail] = useState(false); // Ayudará a indicar si el email está registrado
 
     const onChangeEmail = (nuevoCorreo) => {
         if (nuevoCorreo.length >= 1) {

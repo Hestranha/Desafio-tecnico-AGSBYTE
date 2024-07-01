@@ -10,8 +10,8 @@ InputSimple.propTypes = {
 };
 
 export default function InputSimple({ maxLengthInput, textPlaceHolderInput, typeInput, onChange, error }) {
-    const [value, setValue] = useState('');
-    const [reveal, setReveal] = useState(false);
+    const [value, setValue] = useState(''); // Obtener y mostrar el texto ingresado por el uusario
+    const [reveal, setReveal] = useState(false); // Cambiar la visibilidad de la contraseña (mostrar y ocultar)
 
     const handleChange = (e) => {
         const newValue = e.target.value;

@@ -6,13 +6,13 @@ import { validateEmail } from "../lib/validacion.js";
 import { usuarios } from "../data/usuarios.js"
 
 export default function IniciarSesion() {
-    const history = useNavigate();
+    const history = useNavigate(); // Ayudará a redirigir a otra página de la aplicación
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState(""); // Obtener el email ingresado por el usuario
+    const [password, setPassword] = useState(""); // Obtener la contraseña ingresada por el usuario
 
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
+    const [emailError, setEmailError] = useState(""); // Obtener y mostrar el error del email cometido por el usuario
+    const [passwordError, setPasswordError] = useState(""); // Obtener y mostrar el error de la contraseña cometido por el usuario
 
     const onChangeEmail = (nuevoCorreo) => {
         if (nuevoCorreo.length >= 1) {
