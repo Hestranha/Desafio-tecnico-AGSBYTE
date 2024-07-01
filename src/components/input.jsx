@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import "./css/input.css"
 import React, { useState } from "react";
 
 InputSimple.propTypes = {
@@ -26,12 +25,12 @@ export default function InputSimple({ maxLengthInput, textPlaceHolderInput, type
 
     return (
         <div>
-            <div className={`relative${error && " input-shake"}`}>
+            <div className={`relative${error && " animate-shake"}`}>
                 <input
                     type={typeInput === "password" ? (reveal ? "text" : "password") : typeInput}
                     maxLength={maxLengthInput}
                     placeholder={textPlaceHolderInput}
-                    className={`input-shadow w-full rounded-md border text-sm lg:text-base border-[#070734] ${error ? "bg-red-400 placeholder:text-white" : "placeholder:text-[#070734] "} focus:ring-[#070734] focus:border-[#070734] px-3 py-2 outline-none`}
+                    className={`w-full rounded-md border text-sm lg:text-base border-[#070734] ${error ? "bg-red-400 placeholder:text-white" : "placeholder:text-[#070734] "} focus:ring-[#070734] focus:border-[#070734] px-3 py-2 outline-none focus:shadow-outline-input-blue`}
                     value={value}
                     onChange={handleChange}
                     required
