@@ -8,7 +8,7 @@ export default function Principal() {
                 Bienvenido al menú principal de Ghaxy
             </h1>
             <img
-                className="w-1/2"
+                className="w-1/2 aspect-square"
                 src="/logo.png"
                 alt="logo-principal"
             />

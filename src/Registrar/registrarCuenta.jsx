@@ -201,11 +201,11 @@ export default function IniciarSesion() {
 
             </article>
             <article className="flex flex-col justify-center items-center bg-white dark:text-white dark:bg-[#06064a] px-5 py-8 gap-2 max-md:order-first md:w-1/2 transition-colors duration-300 ease-in-out">
-                <h1 className="font-bold text-center uppercase text-2xl mb-3">
+                <h1 className="font-bold text-center uppercase text-2xl">
                     Comienza y disfruta de Ghaxy
                 </h1>
                 <img
-                    className="w-1/2"
+                    className="w-1/2 aspect-square"
                     src="/logo.png"
                     alt="logo-principal"
                 />
