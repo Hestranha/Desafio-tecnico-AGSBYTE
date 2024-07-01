@@ -139,27 +139,24 @@ export default function IniciarSesion() {
                                 Registrarse
                             </h2>
                             <InputSimple
-                                nameInput="correo"
+                                typeInput="email"
                                 maxLengthInput={64}
                                 textPlaceHolderInput="Correo"
-                                typeInput="email"
                                 onChange={onChangeEmail}
                                 error={emailError}
                             />
                             <div className="flex flex-col w-full gap-2">
                                 <InputSimple
-                                    nameInput="contrasenia"
+                                    typeInput="password"
                                     maxLengthInput={15}
                                     textPlaceHolderInput="Contraseña"
-                                    typeInput="password"
                                     onChange={onChangePassword}
                                     error={passwordError}
                                 />
                                 <InputSimple
-                                    nameInput="contraseniaConfirmacion"
+                                    typeInput="password"
                                     maxLengthInput={15}
                                     textPlaceHolderInput="Repetir Contraseña"
-                                    typeInput="password"
                                     onChange={onChangePasswordConfirmation}
                                     error={passwordErrorConfirmation}
                                 />
@@ -197,9 +194,8 @@ export default function IniciarSesion() {
                             noValidate
                         >
                             <InputSimple
-                                nameInput="code"
-                                textPlaceHolderInput="Ingrese el código"
                                 typeInput="number"
+                                textPlaceHolderInput="Ingrese el código"
                                 onChange={onChangeCodeConfirmation}
                                 error={codeError}
                             />

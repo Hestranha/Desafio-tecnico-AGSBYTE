@@ -36,7 +36,7 @@ export default function App() {
     <main className="flex flex-col justify-center items-center min-h-screen">
       <button
         type="button"
-        name="cambiar-tema"
+        aria-label="cambiar-tema"
         className="max-md:flex max-md:items-center max-md:justify-end text-white max-md:pt-5 max-md:pr-5 max-md:w-full md:fixed md:top-5 md:right-5"
         onClick={handleChangeTheme}
       >

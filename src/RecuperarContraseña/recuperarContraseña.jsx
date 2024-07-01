@@ -96,10 +96,9 @@ export default function RecuperarContraseña() {
                                 </p>
                             </div>
                             <InputSimple
-                                nameInput="correo"
+                                typeInput="email"
                                 maxLengthInput={64}
                                 textPlaceHolderInput="Correo"
-                                typeInput="email"
                                 onChange={onChangeEmail}
                                 error={emailError}
                             />

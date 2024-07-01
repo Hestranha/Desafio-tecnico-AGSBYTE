@@ -19,7 +19,6 @@ export function ButtonSimple({ typeButton, textButton, actionButton, color = "pr
     return (
         <button
             type={typeButton}
-            name={`button-${textButton.replace(/\s+/g, "-")}`}
             className={`select-none w-full rounded-md ${color !== "secondary" ? "text-[#efeffe] bg-[#0e0e65] hover:bg-[#070734]" : "bg-[#0b0b25] hover:bg-[#0f0f6e] text-[#efeffe] dark:text-[#0e0e65] dark:bg-[#efeffe] dark:hover:bg-[#b8b8ef]"} px-4 py-2 transition-colors duration-300`}
             onClick={actionButton}
         >
@@ -32,7 +31,6 @@ export function ButtonImg({ typeButton, textButton, srcButtonImg, altButtonImg, 
     return (
         <button
             type={typeButton}
-            name={`button-${textButton.replace(/\s+/g, "-")}`}
             className="flex justify-center items-center rounded-md bg-gray-200 hover:bg-gray-400 py-2 gap-2 transition-colors duration-300 ease-in-out"
             onClick={actionButton}
         >

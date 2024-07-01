@@ -92,7 +92,6 @@ export default function IniciarSesion() {
                     noValidate
                 >
                     <InputSimple
-                        nameInput="correo"
                         maxLengthInput={64}
                         textPlaceHolderInput="Correo"
                         typeInput="email"
@@ -101,7 +100,6 @@ export default function IniciarSesion() {
                     />
                     <div className="mb-3 w-full">
                         <InputSimple
-                            nameInput="contrasenia"
                             maxLengthInput={15}
                             textPlaceHolderInput="Contraseña"
                             typeInput="password"

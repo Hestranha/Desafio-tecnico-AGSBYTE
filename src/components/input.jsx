@@ -3,7 +3,6 @@ import "./css/input.css"
 import React, { useState } from "react";
 
 InputSimple.propTypes = {
-    nameInput: PropTypes.string.isRequired,
     typeInput: PropTypes.string.isRequired,
     maxLengthInput: PropTypes.number,
     textPlaceHolderInput: PropTypes.string,
@@ -11,7 +10,7 @@ InputSimple.propTypes = {
     error: PropTypes.string,
 };
 
-export default function InputSimple({ nameInput, maxLengthInput, textPlaceHolderInput, typeInput, onChange, error }) {
+export default function InputSimple({ maxLengthInput, textPlaceHolderInput, typeInput, onChange, error }) {
     const [value, setValue] = useState('');
     const [reveal, setReveal] = useState(false);
 
@@ -30,7 +29,6 @@ export default function InputSimple({ nameInput, maxLengthInput, textPlaceHolder
             <div className={`relative${error && " input-shake"}`}>
                 <input
                     type={typeInput === "password" ? (reveal ? "text" : "password") : typeInput}
-                    name={`input-${nameInput}`}
                     maxLength={maxLengthInput}
                     placeholder={textPlaceHolderInput}
                     className={`input-shadow w-full rounded-md border text-sm lg:text-base border-[#070734] ${error ? "bg-red-400 placeholder:text-white" : "placeholder:text-[#070734] "} focus:ring-[#070734] focus:border-[#070734] px-3 py-2 outline-none`}
