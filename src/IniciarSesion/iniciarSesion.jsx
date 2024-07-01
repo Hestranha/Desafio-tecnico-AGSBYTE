@@ -92,17 +92,17 @@ export default function IniciarSesion() {
                     noValidate
                 >
                     <InputSimple
+                        typeInput="email"
                         maxLengthInput={64}
                         textPlaceHolderInput="Correo"
-                        typeInput="email"
                         onChange={onChangeEmail}
                         error={emailError}
                     />
                     <div className="mb-3 w-full">
                         <InputSimple
+                            typeInput="password"
                             maxLengthInput={15}
                             textPlaceHolderInput="Contraseña"
-                            typeInput="password"
                             onChange={onChangePassword}
                             error={passwordError}
                         />

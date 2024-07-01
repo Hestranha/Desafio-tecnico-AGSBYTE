@@ -29,10 +29,10 @@ export default function RecuperarContraseña() {
         const usuarioEncontrado = usuarios.find(usuario => usuario.correo === email);
 
         if (usuarioEncontrado) {
-            let nuevaContraseña = '';
-            const caracteresMayusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            const caracteresMinusculas = 'abcdefghijklmnopqrstuvwxyz';
-            const caracteresNumeros = '0123456789';
+            let nuevaContraseña = "";
+            const caracteresMayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const caracteresMinusculas = "abcdefghijklmnopqrstuvwxyz";
+            const caracteresNumeros = "0123456789";
             const longitud = 10;
 
             nuevaContraseña += caracteresMayusculas.charAt(Math.floor(Math.random() * caracteresMayusculas.length));

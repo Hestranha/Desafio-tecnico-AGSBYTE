@@ -79,13 +79,13 @@ export default function InputSimple({ maxLengthInput, textPlaceHolderInput, type
                 }
             </div>
 
-            {!error ? (
-                <p className="opacity-0 text-xs">
-                    ㅤ
-                </p>
-            ) : (
+            {error ? (
                 <p className="text-xs text-white">
                     *{error}
+                </p>
+            ) : (
+                <p className="opacity-0 text-xs">
+                    ㅤ
                 </p>
             )}
         </div>
