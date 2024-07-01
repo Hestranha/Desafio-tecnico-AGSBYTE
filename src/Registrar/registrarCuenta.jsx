@@ -26,6 +26,34 @@ export default function IniciarSesion() {
     const [timeSleep, setTimeSleep] = useState(0);
     const [timeTotal, setTimeTotal] = useState(5);
 
+    const onChangeEmail = (nuevoCorreo) => {
+        if (nuevoCorreo.length >= 1) {
+            setEmailError("");
+        }
+        setEmail(nuevoCorreo);
+    };
+
+    const onChangePassword = (nuevaContraseña) => {
+        if (nuevaContraseña.length >= 1) {
+            setPasswordError("");
+        }
+        setPassword(nuevaContraseña);
+    };
+
+    const onChangeCodeConfirmation = (nuevoCodigo) => {
+        if (nuevoCodigo.length >= 1) {
+            setCodeError("");
+        }
+        setCodeConfirmation(nuevoCodigo);
+    }
+
+    const onChangePasswordConfirmation = (nuevaContraseñaConfirmacion) => {
+        if (nuevaContraseñaConfirmacion.length >= 1) {
+            setPasswordErrorConfirmation("");
+        }
+        setPasswordConfirmation(nuevaContraseñaConfirmacion)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let error;
@@ -55,7 +83,7 @@ export default function IniciarSesion() {
         setNewUser({
             correo: email,
             contraseña: password
-        })
+        });
 
         const codigoGenerado = Math.floor(100000 + Math.random() * 900000);
         console.log("Código: ", codigoGenerado);
@@ -93,6 +121,7 @@ export default function IniciarSesion() {
         if (error !== "") return;
 
         usuarios.push(newUser);
+        console.log("Nuevo Usuario: ", newUser)
         history('/principal');
     }
 
@@ -111,10 +140,10 @@ export default function IniciarSesion() {
                             </h2>
                             <InputSimple
                                 nameInput="correo"
-                                maxLengthInput={50}
+                                maxLengthInput={64}
                                 textPlaceHolderInput="Correo"
                                 typeInput="email"
-                                onChange={setEmail}
+                                onChange={onChangeEmail}
                                 error={emailError}
                             />
                             <div className="flex flex-col w-full gap-2">
@@ -123,7 +152,7 @@ export default function IniciarSesion() {
                                     maxLengthInput={15}
                                     textPlaceHolderInput="Contraseña"
                                     typeInput="password"
-                                    onChange={setPassword}
+                                    onChange={onChangePassword}
                                     error={passwordError}
                                 />
                                 <InputSimple
@@ -131,7 +160,7 @@ export default function IniciarSesion() {
                                     maxLengthInput={15}
                                     textPlaceHolderInput="Repetir Contraseña"
                                     typeInput="password"
-                                    onChange={setPasswordConfirmation}
+                                    onChange={onChangePasswordConfirmation}
                                     error={passwordErrorConfirmation}
                                 />
                             </div>
@@ -171,7 +200,7 @@ export default function IniciarSesion() {
                                 nameInput="code"
                                 textPlaceHolderInput="Ingrese el código"
                                 typeInput="number"
-                                onChange={setCodeConfirmation}
+                                onChange={onChangeCodeConfirmation}
                                 error={codeError}
                             />
                             <ButtonSimple

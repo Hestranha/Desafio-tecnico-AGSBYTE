@@ -1,8 +1,28 @@
-# React + Vite
+# Desafío Técnico - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto frontend implementa funcionalidades básicas para registro de usuarios, inicio de sesión y recuperación de contraseña.
 
-Currently, two official plugins are available:
+## Funcionalidades Implementadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Registro de Usuario:**
+
+  - Temporalmente permite registrar usuarios. Los registros se eliminan al recargar la página.
+  - El código de verificación del registro se muestra en la consola del navegador.
+  - El nuevo registro de usuario se muestra en la consola del navegador.
+
+- **Inicio de Sesión:**
+
+  - Permite a los usuarios iniciar sesión utilizando sus credenciales.
+
+- **Recuperación de Contraseña:**
+  - Permite recuperar la contraseña. La nueva contraseña generada se muestra en la consola del navegador.
+
+## Uso
+
+1. **Usuarios de prueba:**
+
+   - Se encuentran ubicados en el archivo `src/data/usuarios.js`.
+
+2. **Integraciones con Google y GitHub:**
+
+   - Los botones para ingresar y registrarse con Google y GitHub están sin funcionalidad.

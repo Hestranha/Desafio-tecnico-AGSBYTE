@@ -14,6 +14,20 @@ export default function IniciarSesion() {
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
 
+    const onChangeEmail = (nuevoCorreo) => {
+        if (nuevoCorreo.length >= 1) {
+            setEmailError("");
+        }
+        setEmail(nuevoCorreo);
+    };
+
+    const onChangePassword = (nuevaContraseña) => {
+        if (nuevaContraseña.length >= 1) {
+            setPasswordError("");
+        }
+        setPassword(nuevaContraseña);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let error;
@@ -79,10 +93,10 @@ export default function IniciarSesion() {
                 >
                     <InputSimple
                         nameInput="correo"
-                        maxLengthInput={50}
+                        maxLengthInput={64}
                         textPlaceHolderInput="Correo"
                         typeInput="email"
-                        onChange={setEmail}
+                        onChange={onChangeEmail}
                         error={emailError}
                     />
                     <div className="mb-3 w-full">
@@ -91,7 +105,7 @@ export default function IniciarSesion() {
                             maxLengthInput={15}
                             textPlaceHolderInput="Contraseña"
                             typeInput="password"
-                            onChange={setPassword}
+                            onChange={onChangePassword}
                             error={passwordError}
                         />
                         <div className="flex justify-end w-full">

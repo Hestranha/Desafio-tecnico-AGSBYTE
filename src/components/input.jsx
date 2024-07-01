@@ -33,7 +33,7 @@ export default function InputSimple({ nameInput, maxLengthInput, textPlaceHolder
                     name={`input-${nameInput}`}
                     maxLength={maxLengthInput}
                     placeholder={textPlaceHolderInput}
-                    className="input-shadow w-full rounded-md border text-sm lg:text-base border-[#070734] text-[#070734] focus:ring-[#070734] placeholder:text-[#070734] focus:border-[#070734] px-3 py-2 outline-none"
+                    className={`input-shadow w-full rounded-md border text-sm lg:text-base border-[#070734] ${error ? "bg-red-400 placeholder:text-white" : "placeholder:text-[#070734] "} focus:ring-[#070734] focus:border-[#070734] px-3 py-2 outline-none`}
                     value={value}
                     onChange={handleChange}
                     required

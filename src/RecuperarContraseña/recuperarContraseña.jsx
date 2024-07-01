@@ -10,6 +10,13 @@ export default function RecuperarContraseña() {
     const [emailError, setEmailError] = useState("");
     const [isFindEmail, setIsFindEmail] = useState(false);
 
+    const onChangeEmail = (nuevoCorreo) => {
+        if (nuevoCorreo.length >= 1) {
+            setEmailError("");
+        }
+        setEmail(nuevoCorreo);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         let error
@@ -22,13 +29,28 @@ export default function RecuperarContraseña() {
         const usuarioEncontrado = usuarios.find(usuario => usuario.correo === email);
 
         if (usuarioEncontrado) {
-            console.log("Correo enviado");
+            let nuevaContraseña = '';
+            const caracteresMayusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const caracteresMinusculas = 'abcdefghijklmnopqrstuvwxyz';
+            const caracteresNumeros = '0123456789';
+            const longitud = 10;
+
+            nuevaContraseña += caracteresMayusculas.charAt(Math.floor(Math.random() * caracteresMayusculas.length));
+            nuevaContraseña += caracteresNumeros.charAt(Math.floor(Math.random() * caracteresNumeros.length));
+
+            for (let i = 2; i < longitud; i++) {
+                const caracteresPermitidos = caracteresMayusculas + caracteresMinusculas + caracteresNumeros;
+                nuevaContraseña += caracteresPermitidos.charAt(Math.floor(Math.random() * caracteresPermitidos.length));
+            }
+            console.log('Nueva contraseña:', nuevaContraseña);
+            usuarioEncontrado.contraseña = nuevaContraseña;
             setIsFindEmail(true);
         } else {
             setEmailError("Correo no encontrado");
         }
     }
     const handleRetry = () => {
+        setEmail("");
         setIsFindEmail(false);
     };
 
@@ -75,10 +97,10 @@ export default function RecuperarContraseña() {
                             </div>
                             <InputSimple
                                 nameInput="correo"
-                                maxLengthInput={30}
+                                maxLengthInput={64}
                                 textPlaceHolderInput="Correo"
                                 typeInput="email"
-                                onChange={setEmail}
+                                onChange={onChangeEmail}
                                 error={emailError}
                             />
                             <ButtonSimple
