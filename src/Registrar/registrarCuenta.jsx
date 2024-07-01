@@ -8,7 +8,7 @@ import { usuarios } from "../data/usuarios.js"
 export default function IniciarSesion() {
     const history = useNavigate();
 
-    const [nuevoUsuario, setNuevoUsuario] = useState({});
+    const [newUser, setNewUser] = useState({});
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -22,6 +22,9 @@ export default function IniciarSesion() {
     const [code, setCode] = useState(0);
     const [codeError, setCodeError] = useState("");
     const [codeConfirmation, setCodeConfirmation] = useState(0);
+
+    const [timeSleep, setTimeSleep] = useState(0);
+    const [timeTotal, setTimeTotal] = useState(5);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -49,13 +52,13 @@ export default function IniciarSesion() {
         setPasswordErrorConfirmation(error);
         if (error !== "") return;
 
-        setNuevoUsuario({
+        setNewUser({
             correo: email,
             contraseña: password
         })
 
         const codigoGenerado = Math.floor(100000 + Math.random() * 900000);
-        console.log(codigoGenerado);
+        console.log("Código: ", codigoGenerado);
         setCode(codigoGenerado);
 
         setIsValidateEmail(true);
@@ -63,8 +66,21 @@ export default function IniciarSesion() {
 
     const handleNewCode = () => {
         const codigoGenerado = Math.floor(100000 + Math.random() * 900000);
-        console.log(codigoGenerado);
+        console.log("Nuevo Código: ", codigoGenerado);
         setCode(codigoGenerado);
+
+        let aux = timeTotal;
+        setTimeSleep(aux);
+
+        const interval = setInterval(() => {
+            aux -= 1;
+            setTimeSleep(aux);
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(interval);
+            setTimeTotal(timeTotal * 2);
+        }, aux * 1000);
     }
 
     const handleConfirmation = (e) => {
@@ -72,11 +88,11 @@ export default function IniciarSesion() {
         let error;
 
         setCodeError("");
-        error = codeConfirmation == "" ? "Ingrese su código" : (code != codeConfirmation ? "Código incorrecto" : "");
+        error = codeConfirmation == "" ? "Ingrese el código" : (code != codeConfirmation ? "Código incorrecto" : "");
         setCodeError(error);
         if (error !== "") return;
 
-        usuarios.push(nuevoUsuario);
+        usuarios.push(newUser);
         history('/principal');
     }
 
@@ -167,18 +183,24 @@ export default function IniciarSesion() {
                             <p>
                                 ¿No recibiste el código?
                             </p>
-                            <button
-                                className="cursor-pointer select-none underline hover:text-gray-400 transition-colors duration-300 ease-in-out"
-                                onClick={handleNewCode}
-                            >
-                                Reenviar
-                            </button>
+                            {timeSleep === 0 ? (
+                                <button
+                                    className="cursor-pointer select-none underline hover:text-gray-400 transition-colors duration-300 ease-in-out"
+                                    onClick={handleNewCode}
+                                >
+                                    Reenviar
+                                </button>
+                            ) : (
+                                <React.Fragment>
+                                    {timeSleep}
+                                </React.Fragment>
+                            )}
                         </div>
                     </React.Fragment>
                 )}
 
             </article>
-            <article className="flex flex-col justify-center items-center bg-white dark:text-white dark:bg-[#06064a] px-5 py-8 gap-2 max-md:order-first md:w-1/2">
+            <article className="flex flex-col justify-center items-center bg-white dark:text-white dark:bg-[#06064a] px-5 py-8 gap-2 max-md:order-first md:w-1/2 transition-colors duration-300 ease-in-out">
                 <h1 className="font-bold text-center uppercase text-2xl mb-3">
                     Comienza y disfruta de Ghaxy
                 </h1>
@@ -196,6 +218,7 @@ export default function IniciarSesion() {
                 >
                     <ButtonSimple
                         typeButton="button"
+                        color="secondary"
                         textButton="Iniciar sesión"
                     />
                 </Link>

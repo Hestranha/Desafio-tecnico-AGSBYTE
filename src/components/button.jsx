@@ -19,7 +19,8 @@ export function ButtonSimple({ typeButton, textButton, actionButton, color = "pr
     return (
         <button
             type={typeButton}
-            className={`select-none w-full rounded-md ${color === "primary" ? "text-[#effef7] bg-[#0e0e65] hover:bg-[#070734]" : "text-[#1a1acd] bg-[#c3c3ff] hover:bg-[#a6a6d6]"} px-4 py-2 transition-colors duration-300`}
+            name={`button-${textButton.replace(/\s+/g, "-")}`}
+            className={`select-none w-full rounded-md ${color !== "secondary" ? "text-[#efeffe] bg-[#0e0e65] hover:bg-[#070734]" : "bg-[#0b0b25] hover:bg-[#0f0f6e] text-[#efeffe] dark:text-[#0e0e65] dark:bg-[#efeffe] dark:hover:bg-[#b8b8ef]"} px-4 py-2 transition-colors duration-300`}
             onClick={actionButton}
         >
             {textButton}
@@ -31,10 +32,15 @@ export function ButtonImg({ typeButton, textButton, srcButtonImg, altButtonImg, 
     return (
         <button
             type={typeButton}
-            className="flex justify-center items-center rounded-md bg-gray-200 hover:bg-gray-300 py-2 gap-2 transition-colors duration-300 ease-in-out"
+            name={`button-${textButton.replace(/\s+/g, "-")}`}
+            className="flex justify-center items-center rounded-md bg-gray-200 hover:bg-gray-400 py-2 gap-2 transition-colors duration-300 ease-in-out"
             onClick={actionButton}
         >
-            <img className="w-4 h-4" src={srcButtonImg} alt={altButtonImg} />
+            <img
+                className="w-4 h-4"
+                src={srcButtonImg}
+                alt={altButtonImg}
+            />
             {textButton}
         </button>
     );

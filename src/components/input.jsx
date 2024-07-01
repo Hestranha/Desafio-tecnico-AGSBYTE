@@ -29,9 +29,8 @@ export default function InputSimple({ nameInput, maxLengthInput, textPlaceHolder
         <div>
             <div className={`relative${error && " input-shake"}`}>
                 <input
-                    id={nameInput}
-                    name={nameInput}
                     type={typeInput === "password" ? (reveal ? "text" : "password") : typeInput}
+                    name={`input-${nameInput}`}
                     maxLength={maxLengthInput}
                     placeholder={textPlaceHolderInput}
                     className="input-shadow w-full rounded-md border text-sm lg:text-base border-[#070734] text-[#070734] focus:ring-[#070734] placeholder:text-[#070734] focus:border-[#070734] px-3 py-2 outline-none"
@@ -83,9 +82,13 @@ export default function InputSimple({ nameInput, maxLengthInput, textPlaceHolder
             </div>
 
             {!error ? (
-                <p className="opacity-0 text-xs">ㅤ</p>
+                <p className="opacity-0 text-xs">
+                    ㅤ
+                </p>
             ) : (
-                <p className="text-xs text-white">*{error}</p>
+                <p className="text-xs text-white">
+                    *{error}
+                </p>
             )}
         </div>
     );

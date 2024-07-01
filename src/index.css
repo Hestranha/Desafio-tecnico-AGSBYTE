@@ -7,5 +7,8 @@ body {
     background-image: url('./assets/fondo.svg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     font-family: 'Outfit', sans-serif;
+    transition: background-color .3s ease-in-out;
+    min-height: 100vh;
 }

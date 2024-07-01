@@ -34,7 +34,7 @@ export default function RecuperarContraseña() {
 
     return (
         <section className="flex flex-col rounded-md max-lg:m-4 md:flex-row md:w-3/4 lg:w-1/2">
-            <article className="flex flex-col bg-white dark:text-white dark:bg-[#06064a] justify-center items-center px-5 py-8 gap-2 md:w-1/2">
+            <article className="flex flex-col bg-white dark:text-white dark:bg-[#06064a] justify-center items-center px-5 py-8 gap-2 md:w-1/2 transition-colors duration-300 ease-in-out">
                 <h1 className="font-bold text-center uppercase text-2xl mb-3">
                     Bienvenido nuevamente a Ghaxy
                 </h1>
@@ -52,6 +52,7 @@ export default function RecuperarContraseña() {
                 >
                     <ButtonSimple
                         typeButton="button"
+                        color="secondary"
                         textButton="Registrarse"
                     />
                 </Link>
@@ -69,7 +70,7 @@ export default function RecuperarContraseña() {
                                     Recuperar Contraseña
                                 </h2>
                                 <p className="text-sm">
-                                    Introduzca su correo para recibir su nueva contraseña.
+                                    Introduzca su correo para recibir una nueva contraseña.
                                 </p>
                             </div>
                             <InputSimple
