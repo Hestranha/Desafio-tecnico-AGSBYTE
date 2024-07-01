@@ -6,12 +6,14 @@ import { validateEmail } from "../lib/validacion.js";
 import { usuarios } from "../data/usuarios.js"
 
 export default function IniciarSesion() {
+    const history = useNavigate();
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    const history = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let error;
@@ -42,62 +44,85 @@ export default function IniciarSesion() {
     }
 
     return (
-        <form
-            className="flex flex-col rounded-md bg-white text-black gap-2 px-5 py-8 m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-            onSubmit={handleSubmit}
-            noValidate
+        <section
+            className="flex flex-col rounded-md w-full max-lg:m-4 md:flex-row md:w-3/4 lg:w-1/2"
         >
-            <h2 className="font-bold text-center text-2xl mb-3">Iniciar Sesión</h2>
-            <InputSimple
-                nameInput="correo"
-                maxLengthInput={50}
-                textPlaceHolderInput="Correo"
-                typeInput="email"
-                onChange={setEmail}
-                error={emailError}
-            />
-            <div className="mb-3 w-full">
-                <InputSimple
-                    nameInput="contrasenia"
-                    maxLengthInput={15}
-                    textPlaceHolderInput="Contraseña"
-                    typeInput="password"
-                    onChange={setPassword}
-                    error={passwordError}
+            <article className="flex flex-col justify-center items-center bg-white text-black px-5 py-8 gap-2 md:w-1/2">
+                <h1 className="font-bold text-center uppercase text-2xl mb-3">
+                    Bienvenido nuevamente a Ghaxy
+                </h1>
+                <img
+                    className="w-1/2"
+                    src="/logo.png"
+                    alt="logo-principal"
                 />
-                <Link
-                    to="/recuperarContraseña"
-                    className="flex justify-end cursor-pointer select-none underline text-gray-800 hover:text-gray-950 w-full text-sm transition-colors duration-300 ease-in-out"
-                >
-                    ¿Olvidaste tu contraseña?
-                </Link>
-            </div>
-            <ButtonSimple
-                typeButton="submit"
-                textButton="Ingresar"
-            />
-            <ButtonImg
-                typeButton="button"
-                textButton="Ingresar con Google"
-                srcButtonImg="/iniciar/google-icon.svg"
-                altButtonImg="google-icon"
-            />
-            <ButtonImg
-                typeButton="button"
-                textButton="Ingresar con Github"
-                srcButtonImg="/iniciar/github-icon.svg"
-                altButtonImg="github-icon"
-            />
-            <div className="flex justify-center text-gray-800 text-sm gap-1 w-full">
-                <p>¿Eres nuevo aquí?</p>
+                <p className="text-center">
+                    Si aún no tienes una cuenta por favor registrate aquí.
+                </p>
                 <Link
                     to="/registrarCuenta"
-                    className="cursor-pointer select-none underline hover:text-gray-950 transition-colors duration-300 ease-in-out"
+                    className="w-full"
                 >
-                    Registrarse
+                    <ButtonSimple
+                        typeButton="button"
+                        textButton="Registrarse"
+                    />
                 </Link>
-            </div>
-        </form>
+            </article>
+            <article className="flex flex-col justify-center bg-[#1413b5] text-black px-5 py-8 gap-2 md:w-1/2">
+                <h2 className="font-bold text-center uppercase text-white text-2xl mb-3">
+                    Iniciar Sesión
+                </h2>
+                <form
+                    className="flex flex-col gap-2"
+                    onSubmit={handleSubmit}
+                    noValidate
+                >
+                    <InputSimple
+                        nameInput="correo"
+                        maxLengthInput={50}
+                        textPlaceHolderInput="Correo"
+                        typeInput="email"
+                        onChange={setEmail}
+                        error={emailError}
+                    />
+                    <div className="mb-3 w-full">
+                        <InputSimple
+                            nameInput="contrasenia"
+                            maxLengthInput={15}
+                            textPlaceHolderInput="Contraseña"
+                            typeInput="password"
+                            onChange={setPassword}
+                            error={passwordError}
+                        />
+                        <div className="flex justify-end w-full">
+                            <Link
+                                to="/recuperarContraseña"
+                                className="flex cursor-pointer select-none underline text-gray-200 hover:text-gray-400 text-sm transition-colors duration-300 ease-in-out"
+                            >
+                                ¿Olvidaste tu contraseña?
+                            </Link>
+                        </div>
+                    </div>
+                    <ButtonSimple
+                        typeButton="submit"
+                        textButton="Ingresar"
+                    />
+                </form>
+                <ButtonImg
+                    typeButton="button"
+                    textButton="Ingresar con Google"
+                    srcButtonImg="/iniciar/google-icon.svg"
+                    altButtonImg="google-icon"
+                />
+                <ButtonImg
+                    typeButton="button"
+                    textButton="Ingresar con Github"
+                    srcButtonImg="/iniciar/github-icon.svg"
+                    altButtonImg="github-icon"
+                />
+            </article>
+        </section>
     )
 }
 

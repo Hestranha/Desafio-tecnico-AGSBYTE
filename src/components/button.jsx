@@ -19,7 +19,7 @@ export function ButtonSimple({ typeButton, textButton, actionButton, color = "pr
     return (
         <button
             type={typeButton}
-            className={`select-none w-full rounded-md ${color === "primary" ? "text-[#effef7] bg-[#1a1acd] hover:bg-[#0b0b54]" : "text-[#1a1acd] bg-[#c3c3ff] hover:bg-[#a6a6d6]"} px-4 py-2 transition-colors duration-300`}
+            className={`select-none w-full rounded-md ${color === "primary" ? "text-[#effef7] bg-[#0e0e65] hover:bg-[#070734]" : "text-[#1a1acd] bg-[#c3c3ff] hover:bg-[#a6a6d6]"} px-4 py-2 transition-colors duration-300`}
             onClick={actionButton}
         >
             {textButton}
