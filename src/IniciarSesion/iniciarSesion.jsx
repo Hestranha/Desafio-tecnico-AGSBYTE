@@ -50,7 +50,7 @@ export default function IniciarSesion() {
                     Bienvenido nuevamente a Ghaxy
                 </h1>
                 <img
-                    className="w-1/2"
+                    className="w-1/2 h-1/2"
                     src="/logo.png"
                     alt="logo-principal"
                 />
